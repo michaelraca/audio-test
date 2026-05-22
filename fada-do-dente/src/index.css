@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fredoka', 'Comic Sans MS', cursive;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@layer components {
+  .btn-magic {
+    @apply bg-magic-DEFAULT hover:bg-magic-dark text-white font-bold py-3 px-8 rounded-full 
+           transform transition-all duration-200 hover:scale-105 active:scale-95
+           shadow-lg hover:shadow-xl animate-glow;
+  }
+  
+  .btn-secondary {
+    @apply bg-fairy-pink hover:bg-pink-400 text-white font-bold py-2 px-6 rounded-full
+           transform transition-all duration-200 hover:scale-105 active:scale-95
+           shadow-md;
+  }
+  
+  .card-magic {
+    @apply bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-6
+           border-4 border-magic-light;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(155, 114, 207, 0.8),
+                 0 0 20px rgba(155, 114, 207, 0.5);
+  }
+}
+
+/* Particle animations */
+.particle {
+  position: absolute;
+  pointer-events: none;
+  animation: particle-float 2s ease-out forwards;
+}
+
+@keyframes particle-float {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0);
+  }
+}
+
+/* Key highlight animation */
+.key-highlight {
+  animation: key-pulse 0.5s ease-in-out;
+}
+
+@keyframes key-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(155, 114, 207, 0);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(155, 114, 207, 0.8);
+  }
+}
+
+/* Combo counter animation */
+.combo-pop {
+  animation: combo-scale 0.3s ease-out;
+}
+
+@keyframes combo-scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Fairy wing flap */
+.wing-flap {
+  animation: wing-flap-animation 0.3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes wing-flap-animation {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.7);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(155, 114, 207, 0.2);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(155, 114, 207, 0.6);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(155, 114, 207, 0.8);
+}
